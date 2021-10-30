@@ -1,23 +1,56 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
-function App() {
+const App = () => {
+  const [altura, setAltura] = useState('');
+  const [largura, setLargura] = useState('');
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <form className="App-header">
+        <h2>Medidas da Parede</h2>
+        <div className="input-group input-group-lg w-50 p-3">
+          <span
+            className="input-group-text"
+            id="inputGroup-sizing-lg"
+          >
+            Altura
+          </span>
+          <input
+            type="number"
+            className="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+            min="0"
+            value={altura}
+            onChange={(e) => setAltura(parseFloat(e.target.value).toFixed(2))}
+          />
+        </div>
+        <div className="input-group input-group-lg w-50 p-3">
+          <span
+            className="input-group-text"
+            id="inputGroup-sizing-lg"
+          >
+            Largura
+          </span>
+          <input
+            type="number"
+            className="form-control"
+            aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg"
+            min="0"
+            value={largura}
+            onChange={(e) => setLargura(parseFloat(e.target.value).toFixed(2))}
+          />
+        </div>
+        <button
+          type="button"
+          className="btn btn-primary"
         >
-          Learn React
-        </a>
-      </header>
+          Calcular
+        </button>
+      </form>
     </div>
   );
 }
