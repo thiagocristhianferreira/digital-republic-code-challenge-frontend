@@ -1,56 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import './App.css';
+import Header from './Components/Header/Header';
+import Instructions from './Components/Instructions/Instructions';
+import InputGroup from './Components/InputGroup/InputGroup';
+import CalculateButton from './Components/CalculateButton/CalculateButton';
 
 const App = () => {
-  const [altura, setAltura] = useState('');
-  const [largura, setLargura] = useState('');
+  const toRender = [
+    {
+      height: 'Altura', width:'Largura',
+      doors: 'Quantidade de Portas',
+      windows: 'Quantidade de Janelas',
+      toFixed1: 2, toFixed2: 0,
+      placeholder1: '0,00', placeholder2: '0'
+    },
+    {
+      height: 'Altura', width:'Largura',
+      doors: 'Quantidade de Portas',
+      windows: 'Quantidade de Janelas',
+      toFixed1: 2, toFixed2: 0,
+      placeholder1: '0,00', placeholder2: '0'
+    },
+    {
+      height: "Altura", width:'Largura',
+      doors: 'Quantidade de Portas',
+      windows: 'Quantidade de Janelas',
+      toFixed1: 2, toFixed2: 0,
+      placeholder1: '0,00', placeholder2: '0'
+    },
+    {
+      height: "Altura", width:'Largura',
+      doors: 'Quantidade de Portas',
+      windows: 'Quantidade de Janelas',
+      toFixed1: 2, toFixed2: 0,
+      placeholder1: '0,00', placeholder2: '0'
+    },
+  ];
 
   return (
     <div className="App">
-      <form className="App-header">
-        <h2>Medidas da Parede</h2>
-        <div className="input-group input-group-lg w-50 p-3">
-          <span
-            className="input-group-text"
-            id="inputGroup-sizing-lg"
-          >
-            Altura
-          </span>
-          <input
-            type="number"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-            min="0"
-            value={altura}
-            onChange={(e) => setAltura(parseFloat(e.target.value).toFixed(2))}
-          />
-        </div>
-        <div className="input-group input-group-lg w-50 p-3">
-          <span
-            className="input-group-text"
-            id="inputGroup-sizing-lg"
-          >
-            Largura
-          </span>
-          <input
-            type="number"
-            className="form-control"
-            aria-label="Sizing example input"
-            aria-describedby="inputGroup-sizing-lg"
-            min="0"
-            value={largura}
-            onChange={(e) => setLargura(parseFloat(e.target.value).toFixed(2))}
-          />
-        </div>
-        <button
-          type="button"
-          className="btn btn-primary"
-        >
-          Calcular
-        </button>
-      </form>
+      <Header />
+      <Instructions />
+      <div className="App-header">
+        <InputGroup toRender={toRender} />
+        <CalculateButton />
+      </div>
     </div>
   );
 }
