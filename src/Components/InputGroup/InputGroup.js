@@ -6,7 +6,7 @@ const InputGroup = (props) => {
   const { toRender } = props;
 
   return toRender.map((element, index) => (
-      <section>
+      <section key={index}>
         <Measures element={element} index={index} />
       </section>
     )

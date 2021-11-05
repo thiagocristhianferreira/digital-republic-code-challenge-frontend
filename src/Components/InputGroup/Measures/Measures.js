@@ -31,6 +31,7 @@ const Measure1 = (props) => {
           value={altura}
           onChange={(e) => setAltura(Number(Number(e.target.value).toFixed(element.toFixed1)))}
           placeholder="0,00"
+          required
         />
       </div>
       <div className="input-group input-group w-75 p-3">
@@ -51,6 +52,7 @@ const Measure1 = (props) => {
           value={largura}
           onChange={(e) => setLargura(Number(Number(e.target.value).toFixed(element.toFixed1)))}
           placeholder={"0,00"}
+          required
         />
       </div>
       <div className="input-group input-group w-75 p-3">
