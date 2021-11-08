@@ -1,10 +1,12 @@
 import React from 'react';
 
 import './App.css';
-import Header from './Components/Header/Header';
-import Instructions from './Components/Instructions/Instructions';
-import InputGroup from './Components/InputGroup/InputGroup';
-import CalculateButton from './Components/CalculateButton/CalculateButton';
+import {
+  Header,
+  Instructions,
+  InputGroup,
+  CalculateButton,
+} from './Components';
 
 const App = () => {
   const toRender = [
