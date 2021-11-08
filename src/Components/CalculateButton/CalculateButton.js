@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './CalculateButton.css';
 
 const CalculateButton = () => {
+  const [ink, setInk] = useState([]);
+  const [show, setShow] = useState(true);
+
   const doorsArea = () => {
     const door1 = document.getElementById('doors-1').value;
     const door2 = document.getElementById('doors-2').value;
@@ -59,6 +62,7 @@ const CalculateButton = () => {
   }
 
   const inputVerification = (input, index) => {
+    // console.log(input);
     if (input === '') {
       return alert(`As medidas da parede ${index + 1} devem ser preenchidas`);
     }
@@ -91,8 +95,28 @@ const CalculateButton = () => {
           'O total de área das portas e janelas deve ser no máximo 50% da área de parede'
         );
       }
+
       return data;
     })
+  }
+
+  const inkCalculate = () => {
+    const arr = wallsArea();
+    const sum = arr.reduce((sum, i) => {
+      return sum + i;
+    });
+    const ink1 = sum / 2.5;
+    const ink2 = sum / 12.5;
+    const ink3 = sum / 18;
+    const ink4 = sum / 90;
+    const result = [
+      ink1,
+      ink2,
+      ink3,
+      ink4,
+    ]
+    setInk(result);
+    return setShow(false);
   }
 
   const calculate = () => {
@@ -102,7 +126,12 @@ const CalculateButton = () => {
     const door4 = document.getElementById('doors-4').value;
 
     const inputArray = [door1, door2, door3, door4];
-    inputArray.map((element, index) => inputVerification(element, index));
+    inputArray.map((element, index) => {
+      if (element !== '') {
+        return inputVerification(element, index)
+      }
+      return false;
+    });
 
     const height1 = document.getElementById('height-1').value;
     const height2 = document.getElementById('height-2').value;
@@ -114,16 +143,26 @@ const CalculateButton = () => {
     doorVerification(door4, height4);
     
     areaVerification();
+
+    return inkCalculate();
   }
 
   return (
-    <button
-      type="button"
-      className="btn btn-primary"
-      onClick={() => calculate()}
-    >
-      Calcular
-    </button>
+    <div>
+      <button
+        type="button"
+        className="btn btn-primary"
+        onClick={() => calculate()}
+      >
+        Calcular
+      </button>
+      <div hidden={show}>
+        <h3>{ink[0]} Latas de 0,5 L</h3>
+        <h3>{ink[1]} Latas de 2,5 L</h3>
+        <h3>{ink[2]} Latas de 3,6 L</h3>
+        <h3>{ink[3]} Latas de 18 L</h3>
+      </div>
+    </div>
   )
 }
 
