@@ -13,7 +13,7 @@ const CalculateButton = () => {
   const calculate = () => {
     inputMap();
     setInk(inkCalculate());
-    return setShow(false);
+    setShow(false);
   };
 
   return (
@@ -30,7 +30,8 @@ const CalculateButton = () => {
       <div
         hidden={ show }
       >
-        <h3>{`Serão necessários ${ink[5]} L`}</h3>
+        <h3>Resultado calculado com os dados fornecidos:</h3>
+        <h3>{`Serão necessários ${ink[4]} L`}</h3>
         <h3>{`${ink[0]} Latas de 0,5 L`}</h3>
         <h3>{`${ink[1]} Latas de 2,5 L`}</h3>
         <h3>{`${ink[2]} Latas de 3,6 L`}</h3>

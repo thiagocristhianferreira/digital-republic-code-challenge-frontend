@@ -151,7 +151,13 @@ export const inkCalculate = () => {
   const ink3 = totalArea / div3;
   const ink4 = totalArea / div4;
   const ink5 = ink1 * mult;
-  return [ink1, ink2, ink3, ink4, ink5];
+  return [
+    Number(ink1.toFixed(2)),
+    Number(ink2.toFixed(2)),
+    Number(ink3.toFixed(2)),
+    Number(ink4.toFixed(2)),
+    Number(ink5.toFixed(2)),
+  ];
 };
 
 export const inputMap = () => {
