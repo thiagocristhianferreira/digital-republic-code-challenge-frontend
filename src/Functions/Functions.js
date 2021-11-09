@@ -140,6 +140,7 @@ export const inkCalculate = () => {
   const div2 = 12.5;
   const div3 = 18;
   const div4 = 90;
+  const mult = 0.5;
   const doorsAreaToDif = doorsAreaCaluculate();
   const windowsAreaToDif = windowsAreaCalculate();
 
@@ -149,7 +150,8 @@ export const inkCalculate = () => {
   const ink2 = totalArea / div2;
   const ink3 = totalArea / div3;
   const ink4 = totalArea / div4;
-  return [ink1, ink2, ink3, ink4];
+  const ink5 = ink1 * mult;
+  return [ink1, ink2, ink3, ink4, ink5];
 };
 
 export const inputMap = () => {
