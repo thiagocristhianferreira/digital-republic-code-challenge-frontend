@@ -60,12 +60,12 @@ export const inputVerification = () => {
   ];
   inputs.forEach((elem, index) => {
     if ((elem.firstHeight) === '') {
-      return alert(
+      return alert( // eslint-disable-line no-alert
         `A medida de Altura da parede ${index + 1} deve ser preenchida`,
       );
     }
     if ((elem.firstWidth) === '') {
-      return alert(
+      return alert( // eslint-disable-line no-alert
         `A medida de Largura da parede ${index + 1} deve ser preenchida`,
       );
     }
@@ -75,7 +75,7 @@ export const inputVerification = () => {
 export const doorVerification = (door, heights) => {
   const doorHeight = 2.1;
   if (door > 0 && heights < doorHeight) {
-    return alert('A altura de paredes com porta deve ser maior que 2.10');
+    return alert('A altura de paredes com porta deve ser maior que 2.10'); // eslint-disable-line no-alert
   }
 };
 
@@ -96,7 +96,7 @@ export const areaVerification = () => wallsArea().map((element, index) => {
   const HALF = 0.5;
   const data = element * HALF >= doorsAndWindowsArea()[index];
   if (!data) {
-    return alert(
+    return alert( // eslint-disable-line no-alert
       'O total de área das portas e janelas deve ser no máximo 50% da área de parede',
     );
   }
