@@ -1,6 +1,6 @@
 # App Calcula Tinta
 
-Link da Aplicação: [Deployed App](https://github.com/thiagocristhianferreira/digital-republic-code-challenge-frontend).
+Link da Aplicação: [Deployed App](https://silly-payne-947890.netlify.app/).
 
 ## Como rodar a aplicação localmente:
 
